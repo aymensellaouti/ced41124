@@ -1,0 +1,7 @@
+
+<div (click)="showHide()" class="alert alert-secondary">
+  <p [hidden]="isHidden">first {{ name }}</p>
+  <input #myInput (change)="changeMessage(myInput.value)" type="text">
+  <p>Le contenu de l'input est : {{message}} </p>
+  <app-second />
+</div>
