@@ -24,7 +24,7 @@ export class CvComponent {
       'skander',
       'student',
       '4444',
-      'rotating_card_profile.png',
+      'rotating_card_profile3.png',
       5
     ),
   ];
