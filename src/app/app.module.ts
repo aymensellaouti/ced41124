@@ -22,7 +22,12 @@ import { HighglightDirective } from './directives/highglight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { TodoComponent } from './todo/todo/todo.component';
-
+import {ILoggerService} from './services/ilogger.service';
+import { LoggerInjectionToken } from './injection Tokens/logger.injection-token';
+import { APP_CONSTANTES } from './config/app-constantes.config';
+import { LoggerService } from './services/logger.service';
+import { DevLoggerService } from './services/dev-logger.service';
+import { LoggersInjectionToken } from './injection Tokens/loggers.injection-token';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,14 +48,25 @@ import { TodoComponent } from './todo/todo/todo.component';
     HighglightDirective,
     TodoComponent,
     RainbowDirective,
-    DefaultImagePipe
+    DefaultImagePipe,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  providers: [
+    {
+      provide: LoggerInjectionToken,
+      useClass: APP_CONSTANTES.env === 'production' ? LoggerService : DevLoggerService
+    },
+    {
+      provide: LoggersInjectionToken,
+      useClass: LoggerService,
+      multi: true
+    },
+    {
+      provide: LoggersInjectionToken,
+      useClass: DevLoggerService,
+      multi: true
+    },
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

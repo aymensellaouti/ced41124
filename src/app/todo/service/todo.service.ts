@@ -1,11 +1,13 @@
-import { Injectable } from "@angular/core";
+import { inject, Injectable } from "@angular/core";
 import { Todo } from "../model/todo";
+import { LoggerInjectionToken } from "../../injection Tokens/logger.injection-token";
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoService {
   #todos: Todo[] = [];
+  loggerService = inject(LoggerInjectionToken);
   /**
    * elle retourne la liste des todos
    *
@@ -23,6 +25,7 @@ export class TodoService {
    */
   addTodo(todo: Todo): void {
     this.#todos.push(todo);
+    this.logTodos();
   }
 
   /**
@@ -45,6 +48,6 @@ export class TodoService {
    * @returns void
    */
   logTodos() {
-    console.log(this.#todos);
+    this.loggerService.logger(this.#todos);
   }
 }
