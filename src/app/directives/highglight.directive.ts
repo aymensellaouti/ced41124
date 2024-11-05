@@ -9,7 +9,7 @@ export class HighglightDirective implements OnInit {
 
   @HostBinding('style.backgroundColor') bgc = this.out;
   constructor() {
-    console.log('AppHighlight');
+
   }
   ngOnInit(): void {
     this.bgc = this.out;;
