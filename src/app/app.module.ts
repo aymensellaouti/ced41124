@@ -29,6 +29,8 @@ import { LoggerService } from './services/logger.service';
 import { DevLoggerService } from './services/dev-logger.service';
 import { LoggersInjectionToken } from './injection Tokens/loggers.injection-token';
 import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
+import { UUIDInjectionToken } from './injection Tokens/uuid.injection-token';
+import { v4 as uuidv4 } from 'uuid';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +70,10 @@ import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
       useClass: DevLoggerService,
       multi: true
     },
+    {
+      provide: UUIDInjectionToken,
+      useValue: uuidv4
+    }
   ],
   bootstrap: [AppComponent],
 })
