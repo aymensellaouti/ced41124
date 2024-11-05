@@ -5,14 +5,14 @@ import { Todo } from "../model/todo";
   providedIn: 'root',
 })
 export class TodoService {
-
+  #todos: Todo[] = [];
   /**
    * elle retourne la liste des todos
    *
    * @returns Todo[]
    */
   getTodos(): Todo[] {
-    return [];
+    return this.#todos;
   }
 
   /**
@@ -22,7 +22,7 @@ export class TodoService {
    *
    */
   addTodo(todo: Todo): void {
-
+    this.#todos.push(todo);
   }
 
   /**
@@ -32,6 +32,11 @@ export class TodoService {
    * @returns boolean
    */
   deleteTodo(todo: Todo): boolean {
+    const index = this.#todos.indexOf(todo);
+    if (index !== -1) {
+      this.#todos.splice(index, 1);
+      return true;
+    }
     return false;
   }
 
@@ -40,5 +45,6 @@ export class TodoService {
    * @returns void
    */
   logTodos() {
+    console.log(this.#todos);
   }
 }
