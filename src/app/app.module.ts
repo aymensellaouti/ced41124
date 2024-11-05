@@ -21,6 +21,7 @@ import { LampeComponent } from './directives/lampe/lampe.component';
 import { HighglightDirective } from './directives/highglight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
+import { TodoComponent } from './todo/todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
     MiniWordComponent,
     LampeComponent,
     HighglightDirective,
+    TodoComponent,
     RainbowDirective,
     DefaultImagePipe
   ],
