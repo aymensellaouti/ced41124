@@ -28,6 +28,7 @@ import { APP_CONSTANTES } from './config/app-constantes.config';
 import { LoggerService } from './services/logger.service';
 import { DevLoggerService } from './services/dev-logger.service';
 import { LoggersInjectionToken } from './injection Tokens/loggers.injection-token';
+import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { LoggersInjectionToken } from './injection Tokens/loggers.injection-toke
     LampeComponent,
     HighglightDirective,
     TodoComponent,
+    WeekTodoComponent,
     RainbowDirective,
     DefaultImagePipe,
   ],

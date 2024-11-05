@@ -7,6 +7,7 @@ import { LoggersInjectionToken } from "../../injection Tokens/loggers.injection-
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
+  providers: [TodoService]
 })
 export class TodoComponent {
   todoService = inject(TodoService);
