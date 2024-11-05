@@ -18,6 +18,7 @@ import { CvItemComponent } from './cv/cv-item/cv-item.component';
 import { NgstyleComponent } from './directives/ngstyle/ngstyle.component';
 import { MiniWordComponent } from './directives/mini-word/mini-word.component';
 import { LampeComponent } from './directives/lampe/lampe.component';
+import { HighglightDirective } from './directives/highglight.directive';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { LampeComponent } from './directives/lampe/lampe.component';
     CvItemComponent,
     NgstyleComponent,
     MiniWordComponent,
-    LampeComponent
+    LampeComponent,
+    HighglightDirective
   ],
   imports: [
     BrowserModule,
