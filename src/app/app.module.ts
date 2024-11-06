@@ -38,6 +38,7 @@ import { UUIDInjectionToken } from './injection Tokens/uuid.injection-token';
 import { v4 as uuidv4 } from 'uuid';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -67,6 +68,7 @@ import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 
     RainbowDirective,
     DefaultImagePipe,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

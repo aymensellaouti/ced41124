@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Cv } from '../model/cv';
 
 @Component({
@@ -9,6 +9,8 @@ import { Cv } from '../model/cv';
 export class CvItemComponent {
   @Input({required: true})
   cv!: Cv;
+  @Input()
+  size = 50;
   @Output()
   selectCv = new EventEmitter<Cv>();
 
