@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
+
+
+import { ToastrModule } from 'ngx-toastr';
+
 import { AppComponent } from './app.component';
 import { FirstComponent } from './components/first/first.component';
 import { SecondComponent } from './components/second/second.component';
@@ -63,26 +68,33 @@ import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
     RainbowDirective,
     DefaultImagePipe,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
+  ],
   providers: [
     {
       provide: LoggerInjectionToken,
-      useClass: APP_CONSTANTES.env === 'production' ? LoggerService : DevLoggerService
+      useClass:
+        APP_CONSTANTES.env === 'production' ? LoggerService : DevLoggerService,
     },
     {
       provide: LoggersInjectionToken,
       useClass: LoggerService,
-      multi: true
+      multi: true,
     },
     {
       provide: LoggersInjectionToken,
       useClass: DevLoggerService,
-      multi: true
+      multi: true,
     },
     {
       provide: UUIDInjectionToken,
-      useValue: uuidv4
-    }
+      useValue: uuidv4,
+    },
   ],
   bootstrap: [AppComponent],
 })

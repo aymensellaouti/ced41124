@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Cv } from '../model/cv';
 import { TodoService } from '../../todo/service/todo.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cv',
@@ -11,6 +12,7 @@ export class CvComponent {
   today = new Date();
   selectedCv: Cv | null = null;
   todoService = inject(TodoService);
+  toastr = inject(ToastrService);
   cvs: Cv[] = [
     new Cv(1, 'sellaouti', 'aymen', 'teacher', '12324', '', 42),
     new Cv(2, 'sellaouti', 'skander', 'student', '4444', '      ', 5),
@@ -24,6 +26,9 @@ export class CvComponent {
       20
     ),
   ];
+  constructor() {
+    this.toastr.info('Bienvenu dans notre cvTech');
+  }
   getSelectedCv(cv: Cv) {
     this.selectedCv = cv;
     this.todoService.logTodos();

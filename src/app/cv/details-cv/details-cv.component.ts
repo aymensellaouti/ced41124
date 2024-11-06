@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
-import { Cv } from "../model/cv.model";
+import { Cv } from "../model/cv";
+
 
 @Component({
   selector: 'app-details-cv',

@@ -2,4 +2,6 @@
 @import 'bootstrap';
 /* @import '~bootstrap'; */
 @import 'bootstrap-icons';
+@import 'ngx-toastr/toastr';
+
 @import './app/assets/css/rotating-card.css';
