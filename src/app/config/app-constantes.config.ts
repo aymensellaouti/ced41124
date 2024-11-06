@@ -1,4 +1,4 @@
 export const APP_CONSTANTES = {
-  defaultImage: 'tim_logo.png',
+  defaultImage: 'cv.png',
   env:'development',
 };

@@ -39,6 +39,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { EmbaucheComponent } from './cv/embauche/embauche.component';
 import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { NF404Component } from './components/nf404/nf404.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +70,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     RainbowDirective,
     DefaultImagePipe,
     NavbarComponent,
+    NF404Component,
   ],
   imports: [
     BrowserModule,
