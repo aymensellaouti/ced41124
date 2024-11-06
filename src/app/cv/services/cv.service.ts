@@ -1,5 +1,6 @@
 import {  Injectable } from '@angular/core';
 import { Cv } from '../model/cv';
+import { Subject } from 'rxjs';
 
 
 
@@ -22,6 +23,15 @@ export class CvService {
   ];
 
   /**
+   * Le subject du flux des cvs sélectionnés
+   */
+  #selectCvSubject$ = new Subject<Cv>();
+  /**
+   * Le flux des cvs sélectionnés
+   */
+  selectCv$ = this.#selectCvSubject$.asObservable();
+
+  /**
    * Retourne la liste des cvs
    * @returns Cv[]
    */
@@ -37,7 +47,7 @@ export class CvService {
    * @returns Cv | null
    */
   findCvById(id: number): Cv | null {
-    return this.#cvs.find(cv => cv.id == id) ?? null;
+    return this.#cvs.find((cv) => cv.id == id) ?? null;
   }
 
   /**
@@ -48,11 +58,19 @@ export class CvService {
    * @returns boolean
    */
   deleteCv(cv: Cv): boolean {
-   const index = this.#cvs.indexOf(cv);
-   if (index !== -1) {
-     this.#cvs.splice(index, 1);
-     return true;
-   }
-   return false;
+    const index = this.#cvs.indexOf(cv);
+    if (index !== -1) {
+      this.#cvs.splice(index, 1);
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * Ajouter un cv au flux des cvs sélectionnés
+   * @param cv LE cv à ajouter au flux
+   */
+  selectCv(cv: Cv): void {
+    this.#selectCvSubject$.next(cv);
   }
 }
