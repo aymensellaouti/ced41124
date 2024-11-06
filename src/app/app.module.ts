@@ -31,6 +31,8 @@ import { LoggersInjectionToken } from './injection Tokens/loggers.injection-toke
 import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 import { UUIDInjectionToken } from './injection Tokens/uuid.injection-token';
 import { v4 as uuidv4 } from 'uuid';
+import { EmbaucheComponent } from './cv/embauche/embauche.component';
+import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,18 +41,25 @@ import { v4 as uuidv4 } from 'uuid';
     ColorComponent,
     TwoComponent,
     RotatingCardComponent,
+
     PereComponent,
     FilsComponent,
+
     CvComponent,
     CvListComponent,
     CvCArdComponent,
     CvItemComponent,
+    EmbaucheComponent,
+    DetailsCvComponent,
+
     NgstyleComponent,
     MiniWordComponent,
     LampeComponent,
     HighglightDirective,
+
     TodoComponent,
     WeekTodoComponent,
+
     RainbowDirective,
     DefaultImagePipe,
   ],
