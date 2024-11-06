@@ -19,8 +19,5 @@ export class CvComponent {
   constructor() {
     this.toastr.info('Bienvenu dans notre cvTech');
   }
-  getSelectedCv(cv: Cv) {
-    this.selectedCv = cv;
-    this.todoService.logTodos();
-  }
+
 }

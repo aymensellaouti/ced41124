@@ -11,10 +11,10 @@ export class CvItemComponent {
   cv!: Cv;
   @Input()
   size = 50;
-  @Output()
-  selectCv = new EventEmitter<Cv>();
+  // @Output()
+  // selectCv = new EventEmitter<Cv>();
 
   onSelectCv() {
-    this.selectCv.emit(this.cv);
+    // this.selectCv.emit(this.cv);
   }
 }
