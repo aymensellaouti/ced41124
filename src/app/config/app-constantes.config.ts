@@ -1,4 +1,7 @@
 export const APP_CONSTANTES = {
   defaultImage: 'cv.png',
-  env:'development',
+  env: 'development',
+  token: 'token',
+  tokenParamName: 'access_token',
+  authHeadersName: 'Authorization',
 };
