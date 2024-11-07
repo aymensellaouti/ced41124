@@ -16,13 +16,22 @@ export class CvComponent {
   selectedCv$: Observable<Cv> = this.cvService.selectCv$ ;
   todoService = inject(TodoService);
   toastr = inject(ToastrService);
-  cvs: Cv[] = this.cvService.getCvs();
+  cvs: Cv[] = [];
   constructor() {
     this.toastr.info('Bienvenu dans notre cvTech');
     // V1
     // this.cvService.selectCv$.subscribe({
     //   next: (cv) => this.selectedCv = cv
     // })
+    this.cvService.getCvs().subscribe({
+      next: (cvs) => {
+        this.cvs = cvs;
+      },
+      error: (e) => {
+        this.cvs = this.cvService.getFakeCvs();
+        this.toastr.error(`Attention, les données sont fake merci de contacter l'admin`)
+      },
+    })
   }
 
 }

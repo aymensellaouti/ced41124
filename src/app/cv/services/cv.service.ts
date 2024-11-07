@@ -1,6 +1,8 @@
-import {  Injectable } from '@angular/core';
+import {  inject, Injectable } from '@angular/core';
 import { Cv } from '../model/cv';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { APP_API } from '../../config/app-api.config';
 
 
 
@@ -31,11 +33,13 @@ export class CvService {
    */
   selectCv$ = this.#selectCvSubject$.asObservable();
 
+  http = inject(HttpClient);
+
   /**
    * Retourne la liste des cvs
    * @returns Cv[]
    */
-  getCvs(): Cv[] {
+  getFakeCvs(): Cv[] {
     return this.#cvs;
   }
 
@@ -72,5 +76,12 @@ export class CvService {
    */
   selectCv(cv: Cv): void {
     this.#selectCvSubject$.next(cv);
+  }
+
+  getCvs(): Observable<Cv[]> {
+    return this.http.get<Cv[]>(APP_API.cv);
+  }
+  getCvById(id: number): Observable<Cv> {
+    return this.http.get<Cv>(APP_API.cv + id);
   }
 }
