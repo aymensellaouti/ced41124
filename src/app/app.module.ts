@@ -45,6 +45,7 @@ import { TestFormComponent } from './forms/test-form/test-form.component';
 import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './rxjs/test-observable/test-observable.component';
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
+import { authInterceptorProvider } from './auth/interceptors/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,7 +88,7 @@ import { AddCvComponent } from './cv/add-cv/add-cv.component';
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     {
@@ -109,6 +110,7 @@ import { AddCvComponent } from './cv/add-cv/add-cv.component';
       provide: UUIDInjectionToken,
       useValue: uuidv4,
     },
+    authInterceptorProvider,
   ],
   bootstrap: [AppComponent],
 })
