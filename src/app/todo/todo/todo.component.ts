@@ -15,7 +15,15 @@ export class TodoComponent {
   todos: Todo[] = this.todoService.getTodos();
   todo = new Todo();
   constructor() {
-    this.loggers.forEach(myLogger => myLogger.logger(this.todos))
+    this.loggers.forEach(myLogger => myLogger.logger(this.todos));
+    this.todoService.getTodosFromApi().subscribe({
+      next: (todos) => {
+        console.log(todos);
+      },
+      error: (e) => {
+        console.log(e);
+      },
+    })
   } // private todoService: TodoService
   addTodo() {
     this.todoService.addTodo(this.todo);
