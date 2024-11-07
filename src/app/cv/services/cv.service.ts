@@ -84,4 +84,7 @@ export class CvService {
   getCvById(id: number): Observable<Cv> {
     return this.http.get<Cv>(APP_API.cv + id);
   }
+  deleteCvById(id: number): Observable<{count: number}> {
+    return this.http.delete<{ count: number }>(APP_API.cv + id);
+  }
 }
