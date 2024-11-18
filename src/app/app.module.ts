@@ -46,6 +46,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './rxjs/test-observable/test-observable.component';
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
 import { authInterceptorProvider } from './auth/interceptors/auth.interceptor';
+import { FromOfComponent } from './rxjs/from-of/from-of.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +82,7 @@ import { authInterceptorProvider } from './auth/interceptors/auth.interceptor';
     LoginComponent,
     TestObservableComponent,
     AddCvComponent,
+    FromOfComponent,
   ],
   imports: [
     BrowserModule,
