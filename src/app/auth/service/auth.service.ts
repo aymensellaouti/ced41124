@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { Credentials } from '../dto/credentials.dto';
-import { Observable } from 'rxjs';
+import { map, Observable, Subject } from 'rxjs';
 import { LoginResponseDto } from '../dto/login-response.dto';
 import { HttpClient } from '@angular/common/http';
 import { APP_API } from '../../config/app-api.config';
@@ -11,9 +11,18 @@ import { APP_CONSTANTES } from '../../config/app-constantes.config';
 })
 export class AuthService {
   // user$: Flux chaud qui représente le user connecté : user null user null user null user null
+  users$ = new Subject<ConnectedUser | null>();
   // isLoggedIn$: Observable : true flase true false
+  isLoggedIn$: Observable<boolean> = this.users$.pipe(map((user) => !!user));
   // isLoggedOut$ Observable : false true false true
+  isLoggedOut$: Observable<boolean> = this.users$.pipe(map((user) => !user));
+
   http = inject(HttpClient);
+
+  constructor() {
+
+  }
+
   login(credentials: Credentials): Observable<LoginResponseDto> {
     return this.http.post<LoginResponseDto>(APP_API.login, credentials);
   }
