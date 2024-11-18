@@ -13,7 +13,7 @@ import { FirstComponent } from './components/first/first.component';
 import { SecondComponent } from './components/second/second.component';
 import { ColorComponent } from './components/color/color.component';
 import { TwoComponent } from './components/two/two.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RotatingCardComponent } from './components/rotating-card/rotating-card.component';
 import { PereComponent } from './comInterComponents/pere/pere.component';
 import { FilsComponent } from './comInterComponents/fils/fils.component';
@@ -48,6 +48,7 @@ import { AddCvComponent } from './cv/add-cv/add-cv.component';
 import { authInterceptorProvider } from './auth/interceptors/auth.interceptor';
 import { FromOfComponent } from './rxjs/from-of/from-of.component';
 import { SliderComponent } from './rxjs/slider/slider.component';
+import { AutocompleteComponent } from './cv/autocomplete/autocomplete.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +86,7 @@ import { SliderComponent } from './rxjs/slider/slider.component';
     AddCvComponent,
     FromOfComponent,
     SliderComponent,
+    AutocompleteComponent
   ],
   imports: [
     BrowserModule,
@@ -93,6 +95,7 @@ import { SliderComponent } from './rxjs/slider/slider.component';
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
