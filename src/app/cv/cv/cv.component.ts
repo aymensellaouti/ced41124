@@ -3,7 +3,7 @@ import { Cv } from '../model/cv';
 import { TodoService } from '../../todo/service/todo.service';
 import { ToastrService } from 'ngx-toastr';
 import { CvService } from '../services/cv.service';
-import { catchError, Observable, of } from 'rxjs';
+import { catchError, delay, Observable, of, retry } from 'rxjs';
 
 @Component({
   selector: 'app-cv',
@@ -20,6 +20,10 @@ export class CvComponent {
    * Le flux des cvs
    */
   cvs$: Observable<Cv[]> = this.cvService.getCvs().pipe(
+    retry({
+      count: 4,
+      delay: 3000
+    }),
     catchError((e) => {
       this.toastr.error(`Attention, les données sont fake merci de contacter l'admin`)
       return of(this.cvService.getFakeCvs())

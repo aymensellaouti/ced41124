@@ -10,6 +10,9 @@ import { APP_CONSTANTES } from '../../config/app-constantes.config';
   providedIn: 'root',
 })
 export class AuthService {
+  // user$: Flux chaud qui représente le user connecté : user null user null user null user null
+  // isLoggedIn$: Observable : true flase true false
+  // isLoggedOut$ Observable : false true false true
   http = inject(HttpClient);
   login(credentials: Credentials): Observable<LoginResponseDto> {
     return this.http.post<LoginResponseDto>(APP_API.login, credentials);
@@ -33,4 +36,8 @@ export class AuthService {
   removeToken() {
     localStorage.removeItem(APP_CONSTANTES.token);
   }
+}
+
+export class ConnectedUser {
+  constructor(public id: number, public email: string) {}
 }
