@@ -3,7 +3,7 @@ import { Cv } from '../model/cv';
 import { TodoService } from '../../todo/service/todo.service';
 import { ToastrService } from 'ngx-toastr';
 import { CvService } from '../services/cv.service';
-import { Observable } from 'rxjs';
+import { catchError, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-cv',
@@ -16,22 +16,30 @@ export class CvComponent {
   selectedCv$: Observable<Cv> = this.cvService.selectCv$ ;
   todoService = inject(TodoService);
   toastr = inject(ToastrService);
-  cvs: Cv[] = [];
+  /**
+   * Le flux des cvs
+   */
+  cvs$: Observable<Cv[]> = this.cvService.getCvs().pipe(
+    catchError((e) => {
+      this.toastr.error(`Attention, les données sont fake merci de contacter l'admin`)
+      return of(this.cvService.getFakeCvs())
+    })
+  )
   constructor() {
     this.toastr.info('Bienvenu dans notre cvTech');
     // V1
     // this.cvService.selectCv$.subscribe({
     //   next: (cv) => this.selectedCv = cv
     // })
-    this.cvService.getCvs().subscribe({
-      next: (cvs) => {
-        this.cvs = cvs;
-      },
-      error: (e) => {
-        this.cvs = this.cvService.getFakeCvs();
-        this.toastr.error(`Attention, les données sont fake merci de contacter l'admin`)
-      },
-    })
+    // this.cvService.getCvs().subscribe({
+    //   next: (cvs) => {
+    //     this.cvs = cvs;
+    //   },
+    //   error: (e) => {
+    //     this.cvs = this.cvService.getFakeCvs();
+    //     this.toastr.error(`Attention, les données sont fake merci de contacter l'admin`)
+    //   },
+    // })
   }
 
 }
