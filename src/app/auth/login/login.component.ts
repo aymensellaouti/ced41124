@@ -16,14 +16,12 @@ export class LoginComponent {
   toastr = inject(ToastrService);
   login(credentials: Credentials) {
     this.authService.login(credentials).subscribe({
-      next:(response) => {
-        this.authService.saveToken(response.id);
-        this.router.navigate([APP_ROUTES.cv]);
-      },
-      error: (e) => {
-        this.toastr.error('Veuillez vérifier vos credentials');
-      }
-    })
+      next:(isAuthenticated) => {
+        if (isAuthenticated)
+          this.router.navigate([APP_ROUTES.cv]);
+        else
+          this.toastr.error('Veuillez vérifier vos credentials');
+      }})
   }
 
 }
