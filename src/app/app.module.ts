@@ -49,6 +49,7 @@ import { authInterceptorProvider } from './auth/interceptors/auth.interceptor';
 import { FromOfComponent } from './rxjs/from-of/from-of.component';
 import { SliderComponent } from './rxjs/slider/slider.component';
 import { AutocompleteComponent } from './cv/autocomplete/autocomplete.component';
+import { ProductsComponent } from './products/products.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,7 +87,8 @@ import { AutocompleteComponent } from './cv/autocomplete/autocomplete.component'
     AddCvComponent,
     FromOfComponent,
     SliderComponent,
-    AutocompleteComponent
+    AutocompleteComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

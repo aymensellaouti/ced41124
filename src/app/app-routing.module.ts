@@ -13,6 +13,7 @@ import { AddCvComponent } from './cv/add-cv/add-cv.component';
 import { authGuard } from './auth/guards/auth.guard';
 import { SliderComponent } from './rxjs/slider/slider.component';
 import { APP_ROUTES } from './config/app-routes.config';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
     canActivate: [authGuard],
   },
   { path: `${APP_ROUTES.cv}/:id`, component: DetailsCvComponent },
+  { path: APP_ROUTES.products, component: ProductsComponent },
   { path: 'todo', component: TodoComponent },
   { path: 'word', component: MiniWordComponent },
   { path: 'login', component: LoginComponent },
