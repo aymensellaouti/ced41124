@@ -11,12 +11,19 @@ import { NF404Component } from './components/nf404/nf404.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
 import { authGuard } from './auth/guards/auth.guard';
+import { SliderComponent } from './rxjs/slider/slider.component';
+import { APP_ROUTES } from './config/app-routes.config';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
-  { path: 'cv', component: CvComponent },
-  { path: 'cv/add', component: AddCvComponent, canActivate: [authGuard] },
-  { path: 'cv/:id', component: DetailsCvComponent },
+  { path: APP_ROUTES.cv, component: CvComponent },
+  { path: 'slider', component: SliderComponent },
+  {
+    path: `${APP_ROUTES.cv}/add`,
+    component: AddCvComponent,
+    canActivate: [authGuard],
+  },
+  { path: `${APP_ROUTES.cv}/:id`, component: DetailsCvComponent },
   { path: 'todo', component: TodoComponent },
   { path: 'word', component: MiniWordComponent },
   { path: 'login', component: LoginComponent },

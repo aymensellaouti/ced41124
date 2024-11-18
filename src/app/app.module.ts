@@ -47,6 +47,7 @@ import { TestObservableComponent } from './rxjs/test-observable/test-observable.
 import { AddCvComponent } from './cv/add-cv/add-cv.component';
 import { authInterceptorProvider } from './auth/interceptors/auth.interceptor';
 import { FromOfComponent } from './rxjs/from-of/from-of.component';
+import { SliderComponent } from './rxjs/slider/slider.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,6 +84,7 @@ import { FromOfComponent } from './rxjs/from-of/from-of.component';
     TestObservableComponent,
     AddCvComponent,
     FromOfComponent,
+    SliderComponent,
   ],
   imports: [
     BrowserModule,
