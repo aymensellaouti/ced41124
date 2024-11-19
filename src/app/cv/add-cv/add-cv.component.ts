@@ -1,5 +1,10 @@
 import { Component, inject } from "@angular/core";
 import { FormBuilder, Validators, AbstractControl } from "@angular/forms";
+import { CvService } from "../services/cv.service";
+import { Cv } from "../model/cv";
+import { ToastrService } from "ngx-toastr";
+import { Router } from "@angular/router";
+import { APP_ROUTES } from "../../config/app-routes.config";
 
 @Component({
   selector: 'app-add-cv',
@@ -8,6 +13,9 @@ import { FormBuilder, Validators, AbstractControl } from "@angular/forms";
 })
 export class AddCvComponent {
   formBuilder = inject(FormBuilder);
+  cvService = inject(CvService);
+  toastr = inject(ToastrService);
+  router = inject(Router);
 
   form = this.formBuilder.group(
     {
@@ -35,8 +43,27 @@ export class AddCvComponent {
       updateOn: 'change',
     }
   );
-  constructor() {}
+  constructor() {
+    this.age.valueChanges.subscribe({
+      next: age => {
+        if (age < 18) {
+          this.path?.disable();
+        } else {
+          this.path?.enable();
+        }
+      }
+    })
+  }
   addCv() {
+    this.cvService.addCv(this.form.value as Cv).subscribe({
+      next: (cv) => {
+        this.toastr.success(`${cv.firstname} ${cv.name} was added successfully`);
+        this.router.navigate([APP_ROUTES.cv]);
+      },
+      error: (err) => {
+        this.toastr.error(`Un problème au niveau du serveur merci de contacter l'admin`)
+      }
+  });
   }
 
   get name(): AbstractControl {
