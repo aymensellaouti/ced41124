@@ -4,7 +4,7 @@ import { CvService } from "../services/cv.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { APP_ROUTES } from "../../config/app-routes.config";
 import { AuthService } from "../../auth/service/auth.service";
-import { catchError, EMPTY, Observable, tap } from "rxjs";
+import { catchError, EMPTY, Observable, switchMap, tap } from "rxjs";
 
 
 @Component({
@@ -17,9 +17,8 @@ export class DetailsCvComponent {
   cvService = inject(CvService);
   acr = inject(ActivatedRoute);
   // Le flux qui contient le cv associé à l'id dans l'url
-  cv$: Observable<Cv> = this.cvService.getCvById(
-    this.acr.snapshot.params['id']
-  ).pipe(
+  cv$: Observable<Cv> = this.acr.params.pipe(
+    switchMap(params => this.cvService.getCvById(params['id'])),
     catchError(e => {
       this.router.navigate([APP_ROUTES.cv]);
       return EMPTY;
