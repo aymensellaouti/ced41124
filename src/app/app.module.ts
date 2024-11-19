@@ -51,6 +51,7 @@ import { SliderComponent } from './rxjs/slider/slider.component';
 import { AutocompleteComponent } from './cv/autocomplete/autocomplete.component';
 import { ProductsComponent } from './products/products.component';
 import { MasterDetailsComponent } from './cv/master-details/master-details.component';
+import { NgxUiLoaderModule } from 'ngx-ui-loader';
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,7 +91,7 @@ import { MasterDetailsComponent } from './cv/master-details/master-details.compo
     SliderComponent,
     AutocompleteComponent,
     ProductsComponent,
-    MasterDetailsComponent
+    MasterDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -99,7 +100,8 @@ import { MasterDetailsComponent } from './cv/master-details/master-details.compo
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxUiLoaderModule,
   ],
   providers: [
     {

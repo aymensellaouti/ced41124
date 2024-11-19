@@ -17,18 +17,7 @@ export class MasterDetailsComponent {
   toastr = inject(ToastrService);
   router = inject(Router);
   acr = inject(ActivatedRoute);
-  cvs$: Observable<Cv[]> = this.cvService.getCvs().pipe(
-    retry({
-      count: 4,
-      delay: 3000,
-    }),
-    catchError((e) => {
-      this.toastr.error(
-        `Attention, les données sont fake merci de contacter l'admin`
-      );
-      return of(this.cvService.getFakeCvs());
-    })
-  );
+  cvs = this.acr.snapshot.data['cvs'];
   constructor() {
     this.cvService.selectCv$
     .pipe(

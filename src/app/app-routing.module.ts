@@ -15,6 +15,7 @@ import { SliderComponent } from './rxjs/slider/slider.component';
 import { APP_ROUTES } from './config/app-routes.config';
 import { ProductsComponent } from './products/products.component';
 import { MasterDetailsComponent } from './cv/master-details/master-details.component';
+import { masterDetailResolver } from './cv/resolvers/master-detail.resolver';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
@@ -28,6 +29,9 @@ const routes: Routes = [
   {
     path: `${APP_ROUTES.cv}/list`,
     component: MasterDetailsComponent,
+    resolve: {
+      cvs: masterDetailResolver
+    },
     children: [{ path: ':id', component: DetailsCvComponent }],
   },
   { path: `${APP_ROUTES.cv}/:id`, component: DetailsCvComponent },
