@@ -39,12 +39,16 @@ export class DetailsCvComponent {
   }
 
   delete(cv: Cv) {
-      this.cvService.deleteCvById(cv.id).pipe(
-        tap(() => this.router.navigate([APP_ROUTES.cv])),
-        catchError((e) => {
-          console.log(e);
-          return EMPTY;
-        })
-      ).subscribe();
+      // this.cvService.deleteCvById(cv.id).pipe(
+      //   tap(() => this.router.navigate([APP_ROUTES.cv])),
+      //   catchError((e) => {
+      //     console.log(e);
+      //     return EMPTY;
+      //   })
+      // ).subscribe();
+      this.cvService.deleteCvById(cv.id).subscribe({
+        next: () => this.router.navigate([APP_ROUTES.cv]),
+        error: (e) => console.log(e)
+      });
     }
 }

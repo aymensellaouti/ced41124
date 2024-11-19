@@ -75,7 +75,7 @@ export class CvService {
 
   /**
    * Ajouter un cv au flux des cvs sélectionnés
-   * @param cv LE cv à ajouter au flux
+   * @param cv Le cv à ajouter au flux
    */
   selectCv(cv: Cv): void {
     this.#selectCvSubject$.next(cv);
@@ -87,8 +87,22 @@ export class CvService {
   getCvById(id: number): Observable<Cv> {
     return this.http.get<Cv>(APP_API.cv + id);
   }
-  deleteCvById(id: number): Observable<{count: number}> {
+  deleteCvById(id: number): Observable<{ count: number }> {
     //const params = new HttpParams().set(APP_CONSTANTES.tokenParamName, this.authService.getToken());
-        return this.http.delete<{ count: number }>(APP_API.cv + id);
+    return this.http.delete<{ count: number }>(APP_API.cv + id);
+  }
+  getCvsByName(name: string): Observable<Cv[]> {
+    const params = new HttpParams().set(
+      'filter',
+      `{"where":{"name":{"like":"%${name}%"}}}`
+    );
+    return this.http.get<Cv[]>(APP_API.cv, { params });
+  }
+  getCvsByProperty(property: string, value: string): Observable<Cv[]> {
+    const params = new HttpParams().set(
+      'filter',
+      `{"where":{"${property}":"${value}"}}`
+    );
+    return this.http.get<Cv[]>(APP_API.cv, { params });
   }
 }
