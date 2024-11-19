@@ -6,12 +6,10 @@ describe('AddCvComponent', () => {
   let component: AddCvComponent;
   let fixture: ComponentFixture<AddCvComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
+  beforeEach(() => {
+    TestBed.configureTestingModule({
       declarations: [AddCvComponent]
-    })
-    .compileComponents();
-
+    });
     fixture = TestBed.createComponent(AddCvComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
