@@ -7,7 +7,8 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" [routerLink]="['']" routerLinkActive="active text-primary" [routerLinkActiveOptions]="{exact:true}">Home</a>
-        <a class="nav-link" [routerLink]="['cv']" routerLinkActive="active text-primary">Cv</a>
+        <a class="nav-link" [routerLink]="['cv']" routerLinkActive="active text-primary" [routerLinkActiveOptions]="{exact:true}">Cv</a>
+        <a class="nav-link" [routerLink]="['cv/list']" routerLinkActive="active text-primary">Master Details</a>
         <a class="nav-link"
           *ngIf="authService.isLoggedIn$ | async"
           [routerLink]="['cv','add']" routerLinkActive="active text-primary">Add Cv</a>

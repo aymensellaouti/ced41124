@@ -5,6 +5,7 @@ import { Cv } from "../model/cv";
 import { CvService } from "../services/cv.service";
 import { Router } from "@angular/router";
 import { APP_ROUTES } from "../../config/app-routes.config";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 
 
 @Component({
@@ -27,7 +28,11 @@ export class AutocompleteComponent {
 
   constructor() {
     this.cvService.selectCv$
-    .pipe(distinctUntilChanged())
+    .pipe(
+      distinctUntilChanged(),
+      takeUntilDestroyed()
+
+    )
     .subscribe(
       (cv) => this.router.navigate([`/${APP_ROUTES.cv}`, cv.id])
     )

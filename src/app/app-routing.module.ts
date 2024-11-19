@@ -14,6 +14,7 @@ import { authGuard } from './auth/guards/auth.guard';
 import { SliderComponent } from './rxjs/slider/slider.component';
 import { APP_ROUTES } from './config/app-routes.config';
 import { ProductsComponent } from './products/products.component';
+import { MasterDetailsComponent } from './cv/master-details/master-details.component';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
@@ -24,9 +25,17 @@ const routes: Routes = [
     component: AddCvComponent,
     canActivate: [authGuard],
   },
+  {
+    path: `${APP_ROUTES.cv}/list`,
+    component: MasterDetailsComponent,
+    children: [{ path: ':id', component: DetailsCvComponent }],
+  },
   { path: `${APP_ROUTES.cv}/:id`, component: DetailsCvComponent },
   { path: APP_ROUTES.products, component: ProductsComponent },
-  { path: 'todo', component: TodoComponent },
+  {
+    path: 'todo',
+    component: TodoComponent,
+  },
   { path: 'word', component: MiniWordComponent },
   { path: 'login', component: LoginComponent },
   { path: 'color', component: ColorComponent },

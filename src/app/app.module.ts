@@ -50,6 +50,7 @@ import { FromOfComponent } from './rxjs/from-of/from-of.component';
 import { SliderComponent } from './rxjs/slider/slider.component';
 import { AutocompleteComponent } from './cv/autocomplete/autocomplete.component';
 import { ProductsComponent } from './products/products.component';
+import { MasterDetailsComponent } from './cv/master-details/master-details.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -88,7 +89,8 @@ import { ProductsComponent } from './products/products.component';
     FromOfComponent,
     SliderComponent,
     AutocompleteComponent,
-    ProductsComponent
+    ProductsComponent,
+    MasterDetailsComponent
   ],
   imports: [
     BrowserModule,
