@@ -9,6 +9,7 @@ import { filter, tap } from "rxjs";
 import { APP_CONSTANTES } from "../../config/app-constantes.config";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { uniqueCinValidator } from "../validators/unique-cin.validator";
+import { ageCinValidator } from "../validators/cin-age.validator";
 
 @Component({
   selector: 'app-add-cv',
@@ -43,7 +44,7 @@ export class AddCvComponent implements OnDestroy {
       ],
     },
     {
-      validators: [],
+      validators: [ageCinValidator],
       asyncValidators: [],
       updateOn: 'change',
     }
