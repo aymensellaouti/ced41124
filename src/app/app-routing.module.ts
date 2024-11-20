@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { FirstComponent } from './components/first/first.component';
 import { MiniWordComponent } from './directives/mini-word/mini-word.component';
 import { ColorComponent } from './components/color/color.component';
@@ -9,11 +9,18 @@ import { LoginComponent } from './auth/login/login.component';
 import { SliderComponent } from './rxjs/slider/slider.component';
 import { APP_ROUTES } from './config/app-routes.config';
 import { ProductsComponent } from './products/products.component';
+import { CustomPreloadingStrategy } from './preloadingStrategy/custom.preloading-strategy';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
   { path: 'slider', component: SliderComponent },
-  { path: APP_ROUTES.cv, loadChildren: () => import('./cv/cv.module')},
+  {
+    path: APP_ROUTES.cv,
+    loadChildren: () => import('./cv/cv.module'),
+    data: {
+      preload: true
+    }
+  },
   { path: 'todo', loadChildren: () => import('./todo/todo.module').then(
     fichier => fichier.TodoModule
   )},
@@ -26,7 +33,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: CustomPreloadingStrategy
+
+    }),
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
