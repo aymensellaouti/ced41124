@@ -36,10 +36,7 @@ const routes: Routes = [
   },
   { path: `${APP_ROUTES.cv}/:id`, component: DetailsCvComponent },
   { path: APP_ROUTES.products, component: ProductsComponent },
-  {
-    path: 'todo',
-    component: TodoComponent,
-  },
+
   { path: 'word', component: MiniWordComponent },
   { path: 'login', component: LoginComponent },
   { path: 'color', component: ColorComponent },

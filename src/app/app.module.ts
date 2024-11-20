@@ -27,8 +27,6 @@ import { LampeComponent } from './directives/lampe/lampe.component';
 import { HighglightDirective } from './directives/highglight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
 import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
-import { TodoComponent } from './todo/todo/todo.component';
-import {ILoggerService} from './services/ilogger.service';
 import { LoggerInjectionToken } from './injection Tokens/logger.injection-token';
 import { APP_CONSTANTES } from './config/app-constantes.config';
 import { LoggerService } from './services/logger.service';
@@ -52,6 +50,7 @@ import { AutocompleteComponent } from './cv/autocomplete/autocomplete.component'
 import { ProductsComponent } from './products/products.component';
 import { MasterDetailsComponent } from './cv/master-details/master-details.component';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { TodoModule } from './todo/todo.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,8 +75,6 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     LampeComponent,
     HighglightDirective,
 
-    TodoComponent,
-    WeekTodoComponent,
 
     RainbowDirective,
     DefaultImagePipe,
@@ -95,13 +92,14 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    TodoModule,
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
     HttpClientModule,
     ReactiveFormsModule,
     NgxUiLoaderModule,
+    AppRoutingModule,
   ],
   providers: [
     {
