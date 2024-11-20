@@ -17,40 +17,29 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RotatingCardComponent } from './components/rotating-card/rotating-card.component';
 import { PereComponent } from './comInterComponents/pere/pere.component';
 import { FilsComponent } from './comInterComponents/fils/fils.component';
-import { CvComponent } from './cv/cv/cv.component';
-import { CvListComponent } from './cv/cv-list/cv-list.component';
-import { CvCArdComponent } from './cv/cv-card/cv-card.component';
-import { CvItemComponent } from './cv/cv-item/cv-item.component';
 import { NgstyleComponent } from './directives/ngstyle/ngstyle.component';
 import { MiniWordComponent } from './directives/mini-word/mini-word.component';
 import { LampeComponent } from './directives/lampe/lampe.component';
 import { HighglightDirective } from './directives/highglight.directive';
 import { RainbowDirective } from './directives/rainbow.directive';
-import { DefaultImagePipe } from './cv/pipes/default-image.pipe';
 import { LoggerInjectionToken } from './injection Tokens/logger.injection-token';
 import { APP_CONSTANTES } from './config/app-constantes.config';
 import { LoggerService } from './services/logger.service';
 import { DevLoggerService } from './services/dev-logger.service';
 import { LoggersInjectionToken } from './injection Tokens/loggers.injection-token';
-import { WeekTodoComponent } from './todo/week-todo/week-todo.component';
 import { UUIDInjectionToken } from './injection Tokens/uuid.injection-token';
 import { v4 as uuidv4 } from 'uuid';
-import { EmbaucheComponent } from './cv/embauche/embauche.component';
-import { DetailsCvComponent } from './cv/details-cv/details-cv.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NF404Component } from './components/nf404/nf404.component';
 import { TestFormComponent } from './forms/test-form/test-form.component';
 import { LoginComponent } from './auth/login/login.component';
 import { TestObservableComponent } from './rxjs/test-observable/test-observable.component';
-import { AddCvComponent } from './cv/add-cv/add-cv.component';
 import { authInterceptorProvider } from './auth/interceptors/auth.interceptor';
 import { FromOfComponent } from './rxjs/from-of/from-of.component';
 import { SliderComponent } from './rxjs/slider/slider.component';
-import { AutocompleteComponent } from './cv/autocomplete/autocomplete.component';
 import { ProductsComponent } from './products/products.component';
-import { MasterDetailsComponent } from './cv/master-details/master-details.component';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
-import { TodoModule } from './todo/todo.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -63,36 +52,29 @@ import { TodoModule } from './todo/todo.module';
     PereComponent,
     FilsComponent,
 
-    CvComponent,
-    CvListComponent,
-    CvCArdComponent,
-    CvItemComponent,
-    EmbaucheComponent,
-    DetailsCvComponent,
+    // Cv
 
+    // directives
     NgstyleComponent,
     MiniWordComponent,
     LampeComponent,
     HighglightDirective,
-
-
     RainbowDirective,
-    DefaultImagePipe,
+
+    // Routing
     NavbarComponent,
     NF404Component,
+    // Form
     TestFormComponent,
     LoginComponent,
+    // RxJs
     TestObservableComponent,
-    AddCvComponent,
     FromOfComponent,
     SliderComponent,
-    AutocompleteComponent,
     ProductsComponent,
-    MasterDetailsComponent,
   ],
   imports: [
     BrowserModule,
-    TodoModule,
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added

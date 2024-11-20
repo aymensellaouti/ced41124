@@ -3,7 +3,7 @@ import { TodoComponent } from "./todo/todo.component";
 import { WeekTodoComponent } from "./week-todo/week-todo.component";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
-import { RouterModule } from "@angular/router";
+
 import { TodoRoutingModule } from "./todo-routing.module";
 
 @NgModule({

@@ -6,7 +6,7 @@ import { TodoComponent } from "./todo/todo.component";
   imports: [
     RouterModule.forChild([
       {
-        path: 'todo',
+        path: '',
         component: TodoComponent,
       },
     ])],
