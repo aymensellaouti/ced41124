@@ -3,15 +3,11 @@ import { appComponantActionGroup } from "./action";
 import { initialTodoState, TodoState } from "../todo/store";
 
 export interface AppState {
-  ux: {
-    appName: ''
-  }
+    appName: string
 }
 
 export const initialAppState: AppState = {
-  ux: {
     appName: ''
-  }
 }
 export const appReducer = createReducer(
   initialAppState,
