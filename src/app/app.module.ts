@@ -41,6 +41,7 @@ import { ProductsComponent } from './products/products.component';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { appReducer } from './store';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     ReactiveFormsModule,
     NgxUiLoaderModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({ux: appReducer}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [
