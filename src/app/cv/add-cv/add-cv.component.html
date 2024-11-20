@@ -10,8 +10,12 @@
   </div>
   Firstname:
   <input type="text" class="form-control" formControlName="firstname" /> Age:
-  <input type="text" class="form-control" formControlName="age" /> Cin:
-  <input type="text" class="form-control" formControlName="cin" />
+  <input [ngClass]="{
+    cinAge: form.errors && form.errors['cinAge']
+  }" type="text" class="form-control" formControlName="age" /> Cin:
+  <input type="text" class="form-control" [ngClass]="{
+    cinAge: form.errors && form.errors['cinAge']
+  }" formControlName="cin" />
   <div
     *ngIf="
       cin.errors && cin.errors['uniqueCinError']
@@ -23,6 +27,9 @@
   Job: <input type="text" class="form-control" formControlName="job" /> Path:
   <input type="text" class="form-control" formControlName="path" />
 
+  <div *ngIf="form.errors && form.errors['cinAge']" class="alert alert-danger">
+    {{form.errors['cinAge']}}
+  </div>
   <button [disabled]="form.invalid" class="btn btn-primary" (click)="addCv()">
     add cv
   </button>
