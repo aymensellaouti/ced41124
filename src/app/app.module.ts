@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,6 +40,7 @@ import { SliderComponent } from './rxjs/slider/slider.component';
 import { ProductsComponent } from './products/products.component';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -84,6 +85,7 @@ import { StoreModule } from '@ngrx/store';
     NgxUiLoaderModule,
     AppRoutingModule,
     StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
   ],
   providers: [
     {
