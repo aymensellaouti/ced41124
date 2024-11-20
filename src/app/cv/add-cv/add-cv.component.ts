@@ -1,25 +1,29 @@
-import { Component, inject } from "@angular/core";
-import { FormBuilder, Validators, AbstractControl } from "@angular/forms";
+import { Component, inject, OnDestroy } from "@angular/core";
+import { FormBuilder, Validators, AbstractControl, FormGroup } from "@angular/forms";
 import { CvService } from "../services/cv.service";
 import { Cv } from "../model/cv";
 import { ToastrService } from "ngx-toastr";
 import { Router } from "@angular/router";
 import { APP_ROUTES } from "../../config/app-routes.config";
+import { filter, tap } from "rxjs";
+import { APP_CONSTANTES } from "../../config/app-constantes.config";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { uniqueCinValidator } from "../validators/unique-cin.validator";
 
 @Component({
   selector: 'app-add-cv',
   templateUrl: './add-cv.component.html',
   styleUrls: ['./add-cv.component.css'],
 })
-export class AddCvComponent {
+export class AddCvComponent implements OnDestroy {
   formBuilder = inject(FormBuilder);
   cvService = inject(CvService);
   toastr = inject(ToastrService);
   router = inject(Router);
 
-  form = this.formBuilder.group(
+  form: FormGroup = this.formBuilder.group(
     {
-      name: ['', Validators.required],
+      name: ['', [Validators.required]],
       firstname: ['', Validators.required],
       path: [''],
       job: ['', Validators.required],
@@ -27,6 +31,7 @@ export class AddCvComponent {
         '',
         {
           validators: [Validators.required, Validators.pattern('[0-9]{8}')],
+          asyncValidators: [uniqueCinValidator(this.cvService)],
         },
       ],
       age: [
@@ -44,26 +49,56 @@ export class AddCvComponent {
     }
   );
   constructor() {
+    const savedForm = localStorage.getItem(APP_CONSTANTES.addCvForm);
+    if (savedForm) {
+      this.form.patchValue(JSON.parse(savedForm));
+    }
+
     this.age.valueChanges.subscribe({
-      next: age => {
+      next: (age) => {
         if (age < 18) {
           this.path?.disable();
         } else {
           this.path?.enable();
         }
-      }
-    })
+      },
+    });
+
+    // this.form.statusChanges.pipe(
+    //   filter(() => this.form.valid),
+    //   tap((status) => {
+    //     localStorage.setItem(APP_CONSTANTES.addCvForm, JSON.stringify(this.form.value));
+    //     console.log({status});
+    //   }
+    //   ),
+    //   takeUntilDestroyed()
+    // ).subscribe();
   }
+
   addCv() {
     this.cvService.addCv(this.form.value as Cv).subscribe({
       next: (cv) => {
-        this.toastr.success(`${cv.firstname} ${cv.name} was added successfully`);
+        this.toastr.success(
+          `${cv.firstname} ${cv.name} was added successfully`
+        );
         this.router.navigate([APP_ROUTES.cv]);
+        localStorage.removeItem(APP_CONSTANTES.addCvForm);
       },
       error: (err) => {
-        this.toastr.error(`Un problème au niveau du serveur merci de contacter l'admin`)
-      }
-  });
+        this.toastr.error(
+          `Un problème au niveau du serveur merci de contacter l'admin`
+        );
+      },
+    });
+  }
+
+  ngOnDestroy(): void {
+    if (this.form.valid) {
+      localStorage.setItem(
+        APP_CONSTANTES.addCvForm,
+        JSON.stringify(this.form.value)
+      );
+    }
   }
 
   get name(): AbstractControl {

@@ -106,6 +106,9 @@ export class CvService {
     return this.http.get<Cv[]>(APP_API.cv, { params });
   }
   addCv(cv: Cv): Observable<Cv> {
+    if (!cv.path) {
+      cv.path = '';
+    }
     return this.http.post<Cv>(APP_API.cv, cv);
   }
 }
