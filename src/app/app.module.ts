@@ -39,6 +39,7 @@ import { FromOfComponent } from './rxjs/from-of/from-of.component';
 import { SliderComponent } from './rxjs/slider/slider.component';
 import { ProductsComponent } from './products/products.component';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
     ReactiveFormsModule,
     NgxUiLoaderModule,
     AppRoutingModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [
     {
