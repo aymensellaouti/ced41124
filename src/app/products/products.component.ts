@@ -13,7 +13,7 @@ import {
 import { Product } from './dto/product.dto';
 import { ProductService } from './services/product.service';
 import { Settings } from './dto/product-settings.dto';
-import { NgIf, NgFor, AsyncPipe } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'app-products',
@@ -21,10 +21,8 @@ import { NgIf, NgFor, AsyncPipe } from '@angular/common';
     styleUrls: ['./products.component.css'],
     standalone: true,
     imports: [
-        NgIf,
-        NgFor,
-        AsyncPipe,
-    ],
+    AsyncPipe
+],
 })
 export class ProductsComponent {
   setting: Settings = { limit: 12, skip: 0 };

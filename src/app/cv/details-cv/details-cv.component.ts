@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { APP_ROUTES } from "../../config/app-routes.config";
 import { AuthService } from "../../auth/service/auth.service";
 import { catchError, EMPTY, Observable, switchMap, tap } from "rxjs";
-import { NgIf, AsyncPipe } from "@angular/common";
+import { AsyncPipe } from "@angular/common";
 import { DefaultImagePipe } from "../pipes/default-image.pipe";
 
 
@@ -15,10 +15,9 @@ import { DefaultImagePipe } from "../pipes/default-image.pipe";
     styleUrls: ['./details-cv.component.css'],
     standalone: true,
     imports: [
-        NgIf,
-        AsyncPipe,
-        DefaultImagePipe,
-    ],
+    AsyncPipe,
+    DefaultImagePipe
+],
 })
 export class DetailsCvComponent {
   // cv: Cv | null = null;

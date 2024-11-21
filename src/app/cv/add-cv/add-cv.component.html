@@ -2,12 +2,13 @@
 <form [formGroup]="form">
   Name:
   <input type="text" class="form-control" formControlName="name" />
-  <div
-    *ngIf="form.get('name')?.errors && form.get('name')?.touched"
-    class="alert alert-danger"
-  >
-    Ce champ est obligatoire
-  </div>
+  @if (form.get('name')?.errors && form.get('name')?.touched) {
+    <div
+      class="alert alert-danger"
+      >
+      Ce champ est obligatoire
+    </div>
+  }
   Firstname:
   <input type="text" class="form-control" formControlName="firstname" /> Age:
   <input [ngClass]="{
@@ -16,22 +17,25 @@
   <input type="text" class="form-control" [ngClass]="{
     cinAge: form.errors && form.errors['cinAge']
   }" formControlName="cin" />
-  <div
-    *ngIf="
-      cin.errors && cin.errors['uniqueCinError']
-    "
-    class="alert alert-danger"
-  >
-    Cette Cin est invalide
-  </div>
-  Job: <input type="text" class="form-control" formControlName="job" /> Path:
-  <input type="text" class="form-control" formControlName="path" />
+      @if (
+        cin.errors && cin.errors['uniqueCinError']
+        ) {
+        <div
+          class="alert alert-danger"
+          >
+          Cette Cin est invalide
+        </div>
+      }
+      Job: <input type="text" class="form-control" formControlName="job" /> Path:
+      <input type="text" class="form-control" formControlName="path" />
 
-  <div *ngIf="form.errors && form.errors['cinAge']" class="alert alert-danger">
-    {{form.errors['cinAge']}}
-  </div>
-  <button [disabled]="form.invalid" class="btn btn-primary" (click)="addCv()">
-    add cv
-  </button>
-</form>
+      @if (form.errors && form.errors['cinAge']) {
+        <div class="alert alert-danger">
+          {{form.errors['cinAge']}}
+        </div>
+      }
+      <button [disabled]="form.invalid" class="btn btn-primary" (click)="addCv()">
+        add cv
+      </button>
+    </form>
 

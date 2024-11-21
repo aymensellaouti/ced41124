@@ -5,14 +5,14 @@ import { APP_ROUTES } from '../../config/app-routes.config';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { NgIf } from '@angular/common';
+
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrl: './login.component.css',
     standalone: true,
-    imports: [ReactiveFormsModule, FormsModule, NgIf]
+    imports: [ReactiveFormsModule, FormsModule]
 })
 export class LoginComponent {
   authService = inject(AuthService);

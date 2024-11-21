@@ -9,23 +9,26 @@
         <a class="nav-link" [routerLink]="['']" routerLinkActive="active text-primary" [routerLinkActiveOptions]="{exact:true}">Home</a>
         <a class="nav-link" [routerLink]="['cv']" routerLinkActive="active text-primary" [routerLinkActiveOptions]="{exact:true}">Cv</a>
         <a class="nav-link" [routerLink]="['cv/list']" routerLinkActive="active text-primary">Master Details</a>
-        <a class="nav-link"
-          *ngIf="authService.isLoggedIn$ | async"
+        @if (authService.isLoggedIn$ | async) {
+          <a class="nav-link"
           [routerLink]="['cv','add']" routerLinkActive="active text-primary">Add Cv</a>
+        }
         <a class="nav-link" [routerLink]="['todo']" routerLinkActive="active text-primary">Todo</a>
         <a class="nav-link" [routerLink]="['products']" routerLinkActive="active text-primary">Products</a>
         <a class="nav-link" [routerLink]="['word']" routerLinkActive="active text-primary">Mini Word</a>
         <a class="nav-link" [routerLink]="['color']" routerLinkActive="active text-primary">Color</a>
         <a class="nav-link" [routerLink]="['slider']" routerLinkActive="active text-primary">Slider</a>
         <a class="nav-link" [routerLink]="['rh']" routerLinkActive="active text-primary">RH</a>
-        <a
-          *ngIf="authService.isLoggedOut$ | async"
+        @if (authService.isLoggedOut$ | async) {
+          <a
           class="nav-link" [routerLink]="['login']" routerLinkActive="active text-primary">Login</a>
-        <span
-          *ngIf="authService.isLoggedIn$ | async"
-          (click)="logout()"
+        }
+        @if (authService.isLoggedIn$ | async) {
+          <span
+            (click)="logout()"
           class="nav-link">Logout</span>
-        </div>
+        }
+      </div>
     </div>
   </div>
 </nav>

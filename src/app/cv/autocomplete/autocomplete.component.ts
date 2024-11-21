@@ -6,7 +6,7 @@ import { CvService } from "../services/cv.service";
 import { Router } from "@angular/router";
 import { APP_ROUTES } from "../../config/app-routes.config";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
-import { NgIf, AsyncPipe } from "@angular/common";
+import { AsyncPipe } from "@angular/common";
 import { CvListComponent } from "../cv-list/cv-list.component";
 
 
@@ -16,11 +16,10 @@ import { CvListComponent } from "../cv-list/cv-list.component";
     styleUrls: ['./autocomplete.component.css'],
     standalone: true,
     imports: [
-        ReactiveFormsModule,
-        NgIf,
-        CvListComponent,
-        AsyncPipe,
-    ],
+    ReactiveFormsModule,
+    CvListComponent,
+    AsyncPipe
+],
 })
 export class AutocompleteComponent {
   cvService = inject(CvService);

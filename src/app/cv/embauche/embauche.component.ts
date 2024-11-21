@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Cv } from '../model/cv';
 import { EmbaucheService } from '../services/embauche.service';
-import { NgIf, NgFor } from '@angular/common';
+
 import { CvItemComponent } from '../cv-item/cv-item.component';
 
 
@@ -12,10 +12,8 @@ import { CvItemComponent } from '../cv-item/cv-item.component';
     styleUrls: ['./embauche.component.css'],
     standalone: true,
     imports: [
-        NgIf,
-        NgFor,
-        CvItemComponent,
-    ],
+    CvItemComponent
+],
 })
 export class EmbaucheComponent {
   embaucheService = inject(EmbaucheService);

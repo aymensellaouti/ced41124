@@ -7,7 +7,7 @@ import { Store } from "@ngrx/store";
 import { TodoState } from "../store";
 import { todosSelector } from "../store/selectors";
 import { todoComponantActionGroup } from "../store/actions";
-import { NgFor, AsyncPipe } from "@angular/common";
+import { AsyncPipe } from "@angular/common";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 
 @Component({
@@ -17,11 +17,10 @@ import { ReactiveFormsModule, FormsModule } from "@angular/forms";
     providers: [TodoService],
     standalone: true,
     imports: [
-        NgFor,
-        ReactiveFormsModule,
-        FormsModule,
-        AsyncPipe,
-    ],
+    ReactiveFormsModule,
+    FormsModule,
+    AsyncPipe
+],
 })
 export class TodoComponent {
   todoService = inject(TodoService);
