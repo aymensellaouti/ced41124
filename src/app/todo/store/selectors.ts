@@ -11,5 +11,7 @@ export const todoState = createFeatureSelector<TodoState>(todoSliceName);
 // Sélectionne moi la liste des todos
 export const  todosSelector = createSelector(
   todoState,
+  // Portion 2,
+  // Portion3,
   (state: TodoState) => state.todos
 );

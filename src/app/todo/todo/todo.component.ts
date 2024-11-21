@@ -22,6 +22,7 @@ export class TodoComponent {
   todos$: Observable<Todo[]> = this.store.select(todosSelector);
   todo = new Todo();
   constructor() {
+    this.store.dispatch(todoComponantActionGroup.loadTodos())
     // this.loggers.forEach((myLogger) => myLogger.logger(this.todos));
   //   this.todoService.getTodosFromApi().subscribe({
   //     next: (todos) => {
@@ -38,6 +39,7 @@ export class TodoComponent {
     this.todo = new Todo();
   }
   deleteTodo(todo: Todo) {
-    this.todoService.deleteTodo(todo);
+    this.store.dispatch(todoComponantActionGroup.deleteTodo({id:todo.id}));
+    //this.todoService.deleteTodo(todo);
   }
 }

@@ -14,15 +14,23 @@ export const initialTodoState: TodoState = {
 export const todoReducer = createReducer(
   initialTodoState,
   // On ajoute les réducers de chaque todo Action
-  on(todoComponantActionGroup.addTodo, (oldState, { todo }) => {
-    todo.id = uuidv4();
+  on(todoComponantActionGroup.addTodo, (state, { todo }) => {
+    //todo.id = uuidv4();
+    const newTodo = { ...todo, id: uuidv4() };
+    console.log({ todoState: state });
     return {
-      ...oldState,
-      todos: [...oldState.todos, todo],
+      ...state,
+      todos: [...state.todos, newTodo],
     };
   }),
-  on(todoComponantActionGroup.deleteTodo, (oldState, { id }) => ({
-    ...oldState,
-    todos: oldState.todos.filter((todo) => todo.id != id),
-  }))
+  on(todoComponantActionGroup.deleteTodo, (state, { id }) => ({
+    ...state,
+    todos: state.todos.filter((todo) => todo.id != id),
+  })),
+  on(todoComponantActionGroup.todosLoaded, (state, { todos }) => {
+    return {
+      ...state,
+      todos: [...todos],
+    };
+  })
 );

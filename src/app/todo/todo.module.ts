@@ -7,6 +7,8 @@ import { CommonModule } from "@angular/common";
 import { TodoRoutingModule } from "./todo-routing.module";
 import { StoreModule } from "@ngrx/store";
 import { todoReducer, todoSliceName } from "./store";
+import { EffectsModule } from "@ngrx/effects";
+import { TodoEffect } from "./store/todo.effect";
 
 @NgModule({
   // Hathouma les components pipes et directives eli tab3ini
@@ -16,7 +18,11 @@ import { todoReducer, todoSliceName } from "./store";
     FormsModule,
     CommonModule,
     TodoRoutingModule,
-    StoreModule.forFeature(todoSliceName, todoReducer)
+    StoreModule.forFeature(todoSliceName, todoReducer),
+    EffectsModule.forFeature([
+      // LEhna on va définir les effects eli tab3in essayed Haka
+      TodoEffect,
+    ]),
   ],
   // Hathouma eli n7ab npartagihom m3a s7abi
   exports: [],

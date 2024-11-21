@@ -17,8 +17,10 @@ export const initialUxState: UxState = {
 }
 export const appReducer = createReducer(
   initialUxState,
-  on(appComponantActionGroup.loadAPP, (oldState) => ({
-    ...oldState,
+  // Bech ndéfini pour chaque action qui m'interesse
+  // Quel traitement je fais
+  on(appComponantActionGroup.loadAPP, (state) => ({
+    ...state,
     appName: 'CED',
   }))
 );

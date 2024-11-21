@@ -42,6 +42,7 @@ import { NgxUiLoaderModule } from 'ngx-ui-loader';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducer, uxSliceName } from './store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -86,7 +87,9 @@ import { appReducer, uxSliceName } from './store';
     NgxUiLoaderModule,
     AppRoutingModule,
     StoreModule.forRoot({[uxSliceName]: appReducer}, {}),
+    // Mise en place du debugger Redux DEvTools
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
+    EffectsModule.forRoot([]),
   ],
   providers: [
     {
