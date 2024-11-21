@@ -1,6 +1,6 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -61,7 +61,6 @@ import { TtcComponent } from './signals/ttc/ttc.component';
     TwoComponent,
     RotatingCardComponent,
 
-
     // Cv
 
     // directives
@@ -95,15 +94,13 @@ import { TtcComponent } from './signals/ttc/ttc.component';
     IsEvenComponent,
     InputSignalComponent,
     FirstSignalComponent,
-    TtcComponent
-
+    TtcComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
-    HttpClientModule,
     ReactiveFormsModule,
     NgxUiLoaderModule,
     AppRoutingModule,
@@ -113,6 +110,7 @@ import { TtcComponent } from './signals/ttc/ttc.component';
     EffectsModule.forRoot([]),
   ],
   providers: [
+    provideHttpClient(withInterceptorsFromDi()),
     {
       provide: LoggerInjectionToken,
       useClass:
