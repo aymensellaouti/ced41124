@@ -47,6 +47,8 @@ import { PereComponent } from './cd/pere/pere.component';
 import { FilsComponent } from './cd/fils/fils.component';
 import { UsersComponent } from './optimizationPattern/users/users.component';
 import { FiboPipe } from './pipes/fibo.pipe';
+import { IsEvenComponent } from './signals/is-even/is-even.component';
+import { InputSignalComponent } from './signals/input-signal/input-signal.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +87,11 @@ import { FiboPipe } from './pipes/fibo.pipe';
     PereComponent,
     FilsComponent,
     UsersComponent,
-    FiboPipe
+    FiboPipe,
+
+    //signals
+    IsEvenComponent,
+    InputSignalComponent
 
   ],
   imports: [
