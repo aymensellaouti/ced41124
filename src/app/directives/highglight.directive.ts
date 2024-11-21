@@ -1,7 +1,8 @@
 import { Directive, HostBinding, HostListener, Input, OnInit } from '@angular/core';
 
 @Directive({
-  selector: '[appHighglight]'
+    selector: '[appHighglight]',
+    standalone: true
 })
 export class HighglightDirective implements OnInit {
   @Input() in = 'yellow';

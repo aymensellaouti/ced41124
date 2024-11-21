@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-color',
-  templateUrl: './color.component.html',
-  styleUrl: './color.component.css',
+    selector: 'app-color',
+    templateUrl: './color.component.html',
+    styleUrl: './color.component.css',
+    standalone: true,
 })
 export class ColorComponent {
   defaultColor = 'red';

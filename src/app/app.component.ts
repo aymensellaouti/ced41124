@@ -1,15 +1,24 @@
 import { Component, inject } from '@angular/core';
-import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
+import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { NgxUiLoaderService } from 'ngx-ui-loader';
+import { NgxUiLoaderService, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { appComponantActionGroup } from './store/action';
 import { AppState } from './store';
 import { ConnectedUser } from './auth/service/auth.service';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { InputSignalComponent } from './signals/input-signal/input-signal.component';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    standalone: true,
+    imports: [
+        NavbarComponent,
+        InputSignalComponent,
+        RouterOutlet,
+        NgxUiLoaderModule,
+    ],
 })
 export class AppComponent {
   title = 'ced41124';

@@ -15,22 +15,20 @@ import { CvRoutingModule } from "./cv-routing.module";
 
 
 @NgModule({
-  declarations: [
-    CvComponent,
-    CvListComponent,
-    CvCArdComponent,
-    CvItemComponent,
-    EmbaucheComponent,
-    DetailsCvComponent,
-    AddCvComponent,
-    DefaultImagePipe,
-    AutocompleteComponent,
-    MasterDetailsComponent,
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    CvRoutingModule
-  ],
+    imports: [
+        CommonModule,
+        ReactiveFormsModule,
+        CvRoutingModule,
+        CvComponent,
+        CvListComponent,
+        CvCArdComponent,
+        CvItemComponent,
+        EmbaucheComponent,
+        DetailsCvComponent,
+        AddCvComponent,
+        DefaultImagePipe,
+        AutocompleteComponent,
+        MasterDetailsComponent
+    ],
 })
 export default class CvModule {}

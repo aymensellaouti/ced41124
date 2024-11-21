@@ -1,12 +1,20 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../auth/service/auth.service';
 import { APP_ROUTES } from '../../config/app-routes.config';
-import { Router } from '@angular/router';
+import { Router, RouterLinkActive, RouterLink } from '@angular/router';
+import { NgIf, AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css',
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    styleUrl: './navbar.component.css',
+    standalone: true,
+    imports: [
+        RouterLinkActive,
+        RouterLink,
+        NgIf,
+        AsyncPipe,
+    ],
 })
 export class NavbarComponent {
   authService = inject(AuthService);

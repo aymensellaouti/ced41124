@@ -5,12 +5,15 @@ import { CvService } from '../services/cv.service';
 import { ToastrService } from 'ngx-toastr';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { APP_ROUTES } from '../../config/app-routes.config';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { CvListComponent } from '../cv-list/cv-list.component';
 
 @Component({
-  selector: 'app-master-details',
-  templateUrl: './master-details.component.html',
-  styleUrl: './master-details.component.css',
+    selector: 'app-master-details',
+    templateUrl: './master-details.component.html',
+    styleUrl: './master-details.component.css',
+    standalone: true,
+    imports: [CvListComponent, RouterOutlet],
 })
 export class MasterDetailsComponent {
   cvService = inject(CvService);

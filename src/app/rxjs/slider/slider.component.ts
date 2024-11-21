@@ -2,11 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject, Input } from '@angular/core';
 import { combineLatest, map, Observable, tap, timer } from 'rxjs';
 import { APP_API } from '../../config/app-api.config';
+import { NgStyle, AsyncPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-slider',
-  templateUrl: './slider.component.html',
-  styleUrl: './slider.component.css',
+    selector: 'app-slider',
+    templateUrl: './slider.component.html',
+    styleUrl: './slider.component.css',
+    standalone: true,
+    imports: [NgStyle, AsyncPipe],
 })
 export class SliderComponent {
   @Input() timer = 1000;

@@ -1,9 +1,12 @@
 import { Component, computed, signal } from '@angular/core';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-ttc',
-  templateUrl: './ttc.component.html',
-  styleUrl: './ttc.component.css',
+    selector: 'app-ttc',
+    templateUrl: './ttc.component.html',
+    styleUrl: './ttc.component.css',
+    standalone: true,
+    imports: [ReactiveFormsModule, FormsModule],
 })
 export class TtcComponent {
   priceHt = signal(0);

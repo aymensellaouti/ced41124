@@ -2,9 +2,10 @@ import { Component, Input, computed, input } from '@angular/core';
 import { count } from 'rxjs';
 
 @Component({
-  selector: 'app-is-even',
-  templateUrl: './is-even.component.html',
-  styleUrl: './is-even.component.css',
+    selector: 'app-is-even',
+    templateUrl: './is-even.component.html',
+    styleUrl: './is-even.component.css',
+    standalone: true,
 })
 export class IsEvenComponent {
   // @Input({ required: true })

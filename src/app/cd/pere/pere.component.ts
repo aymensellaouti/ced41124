@@ -7,11 +7,19 @@ import {
   NgZone,
   ViewChild,
 } from "@angular/core";
+import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { FilsComponent } from "../fils/fils.component";
 
 @Component({
-  selector: "app-pere",
-  templateUrl: "./pere.component.html",
-  styleUrl: "./pere.component.css",
+    selector: "app-pere",
+    templateUrl: "./pere.component.html",
+    styleUrl: "./pere.component.css",
+    standalone: true,
+    imports: [
+        ReactiveFormsModule,
+        FormsModule,
+        FilsComponent,
+    ],
 })
 export class PereComponent {
 changeUser(newName: string) {

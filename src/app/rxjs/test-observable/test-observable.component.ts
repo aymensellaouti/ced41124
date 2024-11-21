@@ -2,10 +2,13 @@ import { Component, inject, OnDestroy } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { filter, map, Observable, Subject, Subscription, takeUntil, timeout } from 'rxjs';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
+import { AsyncPipe } from '@angular/common';
 @Component({
-  selector: 'app-test-observable',
-  templateUrl: './test-observable.component.html',
-  styleUrl: './test-observable.component.css',
+    selector: 'app-test-observable',
+    templateUrl: './test-observable.component.html',
+    styleUrl: './test-observable.component.css',
+    standalone: true,
+    imports: [AsyncPipe],
 })
 export class TestObservableComponent implements OnDestroy {
   // C'est une variable tmathl observable d'entiers

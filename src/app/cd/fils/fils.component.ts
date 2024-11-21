@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
 import { Person } from "../pere/pere.component";
 
 @Component({
-  selector: "app-fils",
-  templateUrl: "./fils.component.html",
-  styleUrl: "./fils.component.css",
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    selector: "app-fils",
+    templateUrl: "./fils.component.html",
+    styleUrl: "./fils.component.css",
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
 })
 export class FilsComponent {
   @Input({ required: true }) person!: Person;
