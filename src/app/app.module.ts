@@ -49,6 +49,7 @@ import { UsersComponent } from './optimizationPattern/users/users.component';
 import { FiboPipe } from './pipes/fibo.pipe';
 import { IsEvenComponent } from './signals/is-even/is-even.component';
 import { InputSignalComponent } from './signals/input-signal/input-signal.component';
+import { FirstSignalComponent } from './signals/first-signal/first-signal.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { InputSignalComponent } from './signals/input-signal/input-signal.compon
 
     //signals
     IsEvenComponent,
-    InputSignalComponent
+    InputSignalComponent,
+    FirstSignalComponent
 
   ],
   imports: [
