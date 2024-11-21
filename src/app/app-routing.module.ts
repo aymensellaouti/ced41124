@@ -10,10 +10,12 @@ import { SliderComponent } from './rxjs/slider/slider.component';
 import { APP_ROUTES } from './config/app-routes.config';
 import { ProductsComponent } from './products/products.component';
 import { CustomPreloadingStrategy } from './preloadingStrategy/custom.preloading-strategy';
+import { RhComponent } from './optimizationPattern/rh/rh.component';
 
 const routes: Routes = [
   { path: '', component: FirstComponent },
   { path: 'slider', component: SliderComponent },
+  { path: 'rh', component: RhComponent },
   {
     path: APP_ROUTES.cv,
     loadChildren: () => import('./cv/cv.module'),
