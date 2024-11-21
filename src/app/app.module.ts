@@ -50,6 +50,7 @@ import { FiboPipe } from './pipes/fibo.pipe';
 import { IsEvenComponent } from './signals/is-even/is-even.component';
 import { InputSignalComponent } from './signals/input-signal/input-signal.component';
 import { FirstSignalComponent } from './signals/first-signal/first-signal.component';
+import { TtcComponent } from './signals/ttc/ttc.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { FirstSignalComponent } from './signals/first-signal/first-signal.compon
     //signals
     IsEvenComponent,
     InputSignalComponent,
-    FirstSignalComponent
+    FirstSignalComponent,
+    TtcComponent
 
   ],
   imports: [
