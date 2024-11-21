@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   BehaviorSubject,
   Observable,
@@ -25,6 +25,8 @@ import { AsyncPipe } from '@angular/common';
 ],
 })
 export class ProductsComponent {
+  private productService = inject(ProductService);
+
   setting: Settings = { limit: 12, skip: 0 };
   disabled = false;
   settings$ = new BehaviorSubject<Settings>(this.setting);
@@ -45,7 +47,10 @@ export class ProductsComponent {
     }),
     scan((oldProducts, newProducts) => [...oldProducts, ...newProducts])
   );
-  constructor(private productService: ProductService) {}
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+  constructor() {}
   /**
    * Get more products
    */
