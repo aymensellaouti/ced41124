@@ -15,8 +15,6 @@ import { ColorComponent } from './components/color/color.component';
 import { TwoComponent } from './components/two/two.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RotatingCardComponent } from './components/rotating-card/rotating-card.component';
-import { PereComponent } from './comInterComponents/pere/pere.component';
-import { FilsComponent } from './comInterComponents/fils/fils.component';
 import { NgstyleComponent } from './directives/ngstyle/ngstyle.component';
 import { MiniWordComponent } from './directives/mini-word/mini-word.component';
 import { LampeComponent } from './directives/lampe/lampe.component';
@@ -45,6 +43,10 @@ import { appReducer, uxSliceName } from './store';
 import { EffectsModule } from '@ngrx/effects';
 import { RhComponent } from './optimizationPattern/rh/rh.component';
 import { UserListComponent } from './optimizationPattern/user-list/user-list.component';
+import { PereComponent } from './cd/pere/pere.component';
+import { FilsComponent } from './cd/fils/fils.component';
+import { UsersComponent } from './optimizationPattern/users/users.component';
+import { FiboPipe } from './pipes/fibo.pipe';
 
 @NgModule({
   declarations: [
@@ -55,8 +57,6 @@ import { UserListComponent } from './optimizationPattern/user-list/user-list.com
     TwoComponent,
     RotatingCardComponent,
 
-    PereComponent,
-    FilsComponent,
 
     // Cv
 
@@ -82,6 +82,11 @@ import { UserListComponent } from './optimizationPattern/user-list/user-list.com
     // Optimization Pattern
     RhComponent,
     UserListComponent,
+    PereComponent,
+    FilsComponent,
+    UsersComponent,
+    FiboPipe
+
   ],
   imports: [
     BrowserModule,

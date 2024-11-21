@@ -1,0 +1,15 @@
+<p>pere works!</p>
+<input
+  type="text"
+  [value]="user.name"
+  #nameInput
+  (keyup)="changeUser(nameInput.value) "
+  class="form-control"
+/>
+<input type="text" [(ngModel)]="user.height" class="form-control" />
+<input type="text" [(ngModel)]="user.weight" class="form-control" />
+
+<input type="text" [(ngModel)]="hobby" class="form-control" />
+
+
+<app-fils [hobby]="hobby" [person]="user" />
