@@ -1,4 +1,5 @@
 import { Component, Input, computed, input } from '@angular/core';
+import { count } from 'rxjs';
 
 @Component({
   selector: 'app-is-even',
@@ -6,8 +7,12 @@ import { Component, Input, computed, input } from '@angular/core';
   styleUrl: './is-even.component.css',
 })
 export class IsEvenComponent {
-  @Input({ required: true })
-  counter = 0;
-  isEven = ! (this.counter % 2);
+  // @Input({ required: true })
+  // set counter(newValue: number) {
+  //   this.appCounter = newValue;
+  //   this.isEven = this.appCounter % 2 === 0;
+  // };
+  counter = input.required<number>();
+  isEven = computed(() => this.counter() % 2 === 0);
 
 }
