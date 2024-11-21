@@ -6,7 +6,7 @@ import { CommonModule } from "@angular/common";
 
 import { TodoRoutingModule } from "./todo-routing.module";
 import { StoreModule } from "@ngrx/store";
-import { todoReducer } from "./store";
+import { todoReducer, todoSliceName } from "./store";
 
 @NgModule({
   // Hathouma les components pipes et directives eli tab3ini
@@ -16,7 +16,7 @@ import { todoReducer } from "./store";
     FormsModule,
     CommonModule,
     TodoRoutingModule,
-    StoreModule.forFeature("todo", todoReducer)
+    StoreModule.forFeature(todoSliceName, todoReducer)
   ],
   // Hathouma eli n7ab npartagihom m3a s7abi
   exports: [],

@@ -15,7 +15,7 @@ export class AppComponent {
   title = 'ced41124';
   router = inject(Router);
   ngxUiLoaderService = inject(NgxUiLoaderService);
-  store = inject(Store<AppState>);
+  store: Store<AppState> = inject(Store<AppState>);
   constructor() {
     this.store.subscribe((state) => console.log({ state }));
 
